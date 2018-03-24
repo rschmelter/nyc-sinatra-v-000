@@ -26,7 +26,6 @@ require 'pry'
       @figure.landmarks << Landmark.create(params[:landmark])
     end
 
-
       @figure.save
       redirect to "/figures/#{@figure.id}"
   end
@@ -37,7 +36,7 @@ require 'pry'
   end
 
   post '/figures/:id' do
-    binding.pry
+
     @figure = Figure.find(params[:id])
     @figure.update(params[:figure])
 
