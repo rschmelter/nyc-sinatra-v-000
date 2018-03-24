@@ -17,8 +17,7 @@ require 'pry'
   post '/figures' do
 
     @figure = Figure.create(params[:figure])
-    # , :title_ids => params[:figure][:title_ids], :landmark_ids => [:figure][:landmark_ids])
-
+  
     if !params[:title][:name].empty?
       @figure.titles << Title.create(params[:title])
     end
