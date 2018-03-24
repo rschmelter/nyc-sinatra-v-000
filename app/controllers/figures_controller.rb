@@ -17,7 +17,6 @@ require 'pry'
   post '/figures' do
 
     @figure = Figure.create(params[:figure])
-    # , :title_ids => params[:figure][:title_ids], :landmark_ids => [:figure][:landmark_ids])
 
     if !params[:title][:name].empty?
       @figure.titles << Title.create(params[:title])
@@ -26,7 +25,6 @@ require 'pry'
     if !params[:landmark][:name].empty?
       @figure.landmarks << Landmark.create(params[:landmark])
     end
-
 
       @figure.save
       redirect to "/figures/#{@figure.id}"
@@ -38,7 +36,7 @@ require 'pry'
   end
 
   post '/figures/:id' do
-    binding.pry
+
     @figure = Figure.find(params[:id])
     @figure.update(params[:figure])
 
